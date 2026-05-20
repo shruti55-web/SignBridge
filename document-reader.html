@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document Reader</title>
+
+<!-- PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+
+<!-- DOCX -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.21/mammoth.browser.min.js"></script>
+
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/document-reader.css">
+
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <img src="js/assets/logo.png" alt="logo">
+
+    <nav class="menu">
+      <a href="dashboard.html">🏠Dashboard</a>
+      <a href="text-to-sign.html">🔤Text to Sign</a>
+      <a href="sign_to_text.html">🖐️Sign to Text</a>
+      <a href="voice-to-sign.html">🎤Voice to Sign</a>
+       <a href="document-reader.html" class="active">📄Document Reader</a>
+      <a href="ai-helper.html">🤖AI Helper</a>
+      <a href="history.html">🕒History</a>
+
+    </nav>
+
+       <div class="user-box">
+      <p id="userName"></p>
+      <small id="userEmail"></small>
+      <button onclick="logout()">Sign Out</button>
+    </div>
+    </aside>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <div class="header">
+        <h1>Document Reader</h1>
+        <p>Upload a document and have it read aloud at your preferred speed.</p>
+    </div>
+
+    <div class="container">
+
+        <!-- Upload Area -->
+        <div class="upload-card">
+            <div class="upload-area" id="uploadArea">
+                <p class="upload-text">📄 Drag & drop a document here or click to browse</p>
+                <p class="upload-subtext">Supported formats: .txt, .pdf, .docx</p>
+                <input type="file" id="fileInput" accept=".txt,.pdf,.docx" hidden>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls" id="controls" style="display:none;">
+            <button id="playBtn">Play</button>
+            <button id="pauseBtn">Pause</button>
+            <button id="stopBtn">Stop</button>
+            <button id="resetBtn">Back</button>
+
+            <div class="speed">
+                Speed:
+                <input type="range" id="speedSlider" min="0.5" max="3" step="0.1" value="1">
+                <span id="speedValue">1x</span>
+            </div>
+
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+            <p id="progressText">0% complete</p>
+        </div>
+
+        <!-- Text Display -->
+        <div class="text-card" id="textCard" style="display:none;">
+            <h3>Document Content</h3>
+            <div id="textDisplay"></div>
+        </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/history.js"></script>
+<script src="js/history_page.js"></script>
+<script src="js/app.js"></script>
+<script src="js/document-reader.js"></script>
+
+
+
+</body>
+</html>

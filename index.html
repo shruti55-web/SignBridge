@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SignBridge</title>
+</head>
+<body>
+
+<script>
+  // Check login status
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+  if (isLoggedIn === "true") {
+    window.location.href = "dashboard.html";
+  } else {
+    window.location.href = "login.html";
+  }
+</script>
+
+</body>
+</html>

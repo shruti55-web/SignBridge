@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Voice to Sign</title>
+
+  <!-- SAME CSS AS TEXT TO SIGN -->
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/voice-to-sign.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <img src="js/assets/logo.png" alt="logo">
+  
+
+    <nav class="menu">
+      <a href="dashboard.html">🏠Dashboard</a>
+      <a href="text-to-sign.html">🔤Text to Sign</a>
+      <a href="sign_to_text.html">🖐️Sign to Text</a>
+      <a href="voice-to-sign.html" class="active">🎤Voice to Sign</a>
+      <a href="document-reader.html">📄Document Reader</a>
+       <a href="ai-helper.html">🤖AI Helper</a>
+      <a href="history.html">🕒History</a>
+    </nav>
+
+    <div class="user-box">
+      <p id="userName"></p>
+      <small id="userEmail"></small>
+      <button onclick="logout()">Sign Out</button>
+    </div>
+    </aside>
+  <!-- MAIN -->
+  <main class="content">
+
+    <div class="header">
+      <h1>Voice to Sign</h1>
+      <p>Speak normally to translate into sign language.</p>
+    </div>
+
+    <div class="content-card">
+      <button id="micBtn" class="primary-btn">🎤 Start Speaking</button>
+      <p id="spokenText" class="spoken-text">—</p>
+      <div id="resultBox" class="sign-output"></div>
+    </div>
+
+  </main>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/history.js"></script>
+<script src="js/history_page.js"></script>
+<script src="js/app.js"></script>
+<script src="js/voice-to-sign.js"></script>
+<script>
+const supabaseClient = supabase.createClient(
+  "https://objwfboldhhxygbqbfcx.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9iandmYm9sZGhoeHlnYnFiZmN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg4ODM1NDIsImV4cCI6MjA4NDQ1OTU0Mn0.gWi5hGk-jNdm3yJHHqunvUMLHjFA_aOAjbPMobRQoXM"
+);
+
+async function saveHistory(text) {
+  const { data: { user } } = await supabaseClient.auth.getUser();
+
+  await supabaseClient
+    .from("text_to_sign_history")
+    .insert([
+      {
+        user_id: user.id,
+        input_text: text
+      }
+    ]);
+}
+
+// Call this when translation happens
+saveHistory("Hello World");
+</script>
+
+</body>
+</html>

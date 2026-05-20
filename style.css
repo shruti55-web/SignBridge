@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f6f9fc;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+  background: #ffffff;
+  padding: 20px;
+  border-right: 1px solid #eee;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+.logo {
+  font-size: 22px;
+  color: #1aa3ff;
+  margin-bottom: 30px;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu li {
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #555;
+}
+
+.menu li.active {
+  background: #eaf6ff;
+  color: #1aa3ff;
+  font-weight: 600;
+}
+
+.user {
+  margin-top: auto;   /* pushes user block to bottom */
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: #eaf6ff;
+  color: #1aa3ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.logout {
+  margin-top: 10px;
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 40px;
+}
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+/* CAMERA BOX */
+.camera-box {
+  width: 600px;
+  height: 350px;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.camera-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(0, 180, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.camera-btn {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border: none;
+  padding: 14px 30px;
+  color: white;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+}

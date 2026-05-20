@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SignBridge Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <img src="js/assets/logo.png" alt="logo">
+  
+
+       <nav class="menu">
+      <a href="dashboard.html"class="active">🏠Dashboard</a>
+      <a href="text-to-sign.html">🔤Text to Sign</a>
+      <a href="sign_to_text.html">🖐️Sign to Text</a>
+      <a href="voice-to-sign.html">🎤Voice to Sign</a>
+      <a href="document-reader.html">📄Document Reader</a>
+      <a href="ai-helper.html">🤖AI Helper</a>
+      <a href="history.html" >🕒History</a>
+    
+    </nav>
+
+    <div class="user-box">
+      <p id="userName"></p>
+      <small id="userEmail"></small>
+      <button onclick="logout()">Sign Out</button>
+    </div>
+    </aside>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <header class="topbar">
+      <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+      <div>
+        <h1>SignBridge</h1>
+        <p class="subtitle">
+          <h2>Welcome to SignBridge.</h2>
+          <h3><b>Breaking communication barriers between speech, text, and sign language.</b></h3>
+        </p>
+      </div>
+    </header>
+
+    <!-- DASHBOARD CARDS -->
+    <div class="dashboard-grid">
+      <!-- Feature Cards -->
+      <div class="card feature-card" onclick="window.location.href='text-to-sign.html'">
+        <div class="card-icon">
+          <img src="js/assets/icons/abc.png" alt="Text to Sign">
+        </div>
+        <h3>Text to Sign</h3>
+        <p>Convert written text into sign language gestures</p>
+        <span class="card-arrow">→</span>
+      </div>
+
+      <div class="card feature-card" onclick="window.location.href='sign_to_text.html'">
+        <div class="card-icon">
+          <img src="js/assets/icons/sign.png" alt="Sign to Text">
+        </div>
+        <h3>Sign to Text</h3>
+        <p>Use your camera to translate sign language to text</p>
+        <span class="card-arrow">→</span>
+      </div>
+
+      <div class="card feature-card" onclick="window.location.href='voice-to-sign.html'">
+        <div class="card-icon">
+          <img src="js/assets/icons/voice.png" alt="Voice to Sign">
+        </div>
+        <h3>Voice to Sign</h3>
+        <p>Speak and see your words translated to sign language</p>
+        <span class="card-arrow">→</span>
+      </div>
+
+      
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const supabaseClient = supabase.createClient(
+  "https://objwfboldhhxygbqbfcx.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9iandmYm9sZGhoeHlnYnFiZmN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg4ODM1NDIsImV4cCI6MjA4NDQ1OTU0Mn0.gWi5hGk-jNdm3yJHHqunvUMLHjFA_aOAjbPMobRQoXM"
+);
+
+async function loadDashboard() {
+  const { data: { user } } = await supabaseClient.auth.getUser();
+
+  if (!user) {
+    window.location.href = "login.html";
+    return;
+  }
+
+  // Show user info
+  document.getElementById("userName").innerText = user.email.split("@")[0];
+  document.getElementById("userEmail").innerText = user.email;
+}
+
+loadDashboard();
+
+// Logout using Supabase
+async function logout() {
+  await supabaseClient.auth.signOut();
+  window.location.href = "login.html";
+}
+
+// Sidebar toggle
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("hide");
+}
+</script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Text to Sign | SignBridge</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/text-to-sign.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <img src="js/assets/logo.png" alt="logo">
+  
+
+    <nav class="menu">
+      <a href="dashboard.html">🏠Dashboard</a>
+      <a href="text-to-sign.html" class="active">🔤Text to Sign</a>
+      <a href="sign_to_text.html">🖐️Sign to Text</a>
+      <a href="voice-to-sign.html">🎤Voice to Sign</a>
+      <a href="document-reader.html">📄Document Reader</a>
+      <a href="ai-helper.html">🤖AI Helper</a>
+      <a href="history.html">🕒History</a>
+    </nav>
+
+       <div class="user-box">
+      <p id="userName"></p>
+      <small id="userEmail"></small>
+      <button onclick="logout()">Sign Out</button>
+    </div>
+    </aside>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <h1>Text to Sign</h1>
+    <p class="subtitle">
+      <b>Type your sentence below to translate it into sign language.</b>
+    </p>
+
+    <!-- INPUT CARD -->
+    <div class="card">
+      <textarea id="textInput"></textarea>
+
+
+      <div class="actions">
+        <button class="clear" onclick="clearText()">Clear</button>
+        <button class="translate" onclick="translateText()">▶ Translate</button>
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="result-card">
+      <h3>Translation Result</h3>
+
+      <div id="resultBox" class="result-box hidden">
+        <img id="signImage" src="" alt="Sign Result">
+        <p id="resultText"></p>
+      </div>
+    </div>
+
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/text-to-sign.js"></script>
+<script src="js/assets/signs.js"></script>
+<script src="js/history.js"></script>
+</body>
+</html>

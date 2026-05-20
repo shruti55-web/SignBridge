@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+
+.header {
+    padding: 30px;
+    color: rgb(1, 1, 1);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.header p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.container {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* Center everything horizontally */
+}
+
+
+.upload-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+
+
+.upload-area {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 60px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.upload-area:hover {
+    border-color: #667eea;
+    background: #f8f9ff;
+}
+
+.upload-text {
+    font-size: 18px;
+}
+
+.upload-subtext {
+    margin-top: 10px;
+    color: gray;
+    font-size: 14px;
+}
+
+.controls {
+    background: white;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.controls button {
+    padding: 8px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.controls button:nth-child(1) { background: #28a745; color: white; }
+.controls button:nth-child(2) { background: #ffc107; }
+.controls button:nth-child(3) { background: #dc3545; color: white; }
+
+.speed {
+    margin-top: 15px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+#progressFill {
+    height: 8px;
+    width: 0%;
+    background: #667eea;
+    border-radius: 5px;
+}
+
+.text-card {
+    background: white;
+    margin-top: 80px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#textDisplay {
+    margin-top: 10px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.highlight {
+    background: yellow;
+    font-weight: bold;
+}
+
+.main-wrapper {
+    max-width: 1000px;
+    margin: auto;
+}
+.app {
+   display: flex;
+}

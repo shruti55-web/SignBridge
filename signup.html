@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Up | SignBridge</title>
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+
+<div class="auth-wrapper">
+  <div class="logo-section">
+    <img src="js/assets/logo.png" alt="SignBridge Logo" class="logo">
+    <h1 class="brand-name">SignBridge</h1>
+  </div>
+
+  <div class="auth-container">
+    <div class="auth-header">
+      <h2>Create Account</h2>
+      <p>Sign up to start using SignBridge</p>
+    </div>
+
+    <form class="auth-form" id="signupForm">
+      <div class="input-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required />
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
+      </div>
+
+      <div id="signupMessage" style="color:red; margin:5px 0;"></div>
+
+      <button type="submit" class="auth-btn">Sign Up</button>
+    </form>
+
+    <div class="auth-footer">
+      <p>Already have an account? <a href="login.html" class="auth-link">Sign In</a></p>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const supabaseClient = supabase.createClient(
+  "https://objwfboldhhxygbqbfcx.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9iandmYm9sZGhoeHlnYnFiZmN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg4ODM1NDIsImV4cCI6MjA4NDQ1OTU0Mn0.gWi5hGk-jNdm3yJHHqunvUMLHjFA_aOAjbPMobRQoXM"
+);
+
+document.getElementById("signupForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  const { data, error } = await supabaseClient.auth.signUp({
+    email,
+    password
+  });
+
+
+  if (error) {
+    document.getElementById("signupMessage").innerText = error.message;
+    return;
+  }
+
+  alert("Signup successful! Please verify email if required.");
+  window.location.href = "login.html";
+});
+</script>
+<!-- <script src="js/auth.js"></script> -->
+<!-- <script src="js/signup.js"></script> -->
+</body>
+</html>

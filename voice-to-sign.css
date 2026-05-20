@@ -1,0 +1,63 @@
+/* Uses same spacing/colors as Text to Sign */
+
+.content-card {
+  margin-top: 30px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px;
+  min-height: 100px;
+}
+
+
+.header {
+    padding: 40px;
+    color: rgb(1, 1, 1);
+    padding-left: 30px;
+}
+/* Heading */
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+
+     
+}
+
+/* Paragraph */
+.header p {
+  margin-top: 8px;
+  font-size: 16px;
+
+}
+
+.primary-btn {
+  background: #6c6ce5;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background: #5b5bd6;
+}
+
+.spoken-text {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.sign-output {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sign-output img {
+  width: 80px;
+  margin: 6px;
+}

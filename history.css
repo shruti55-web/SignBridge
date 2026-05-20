@@ -1,0 +1,108 @@
+/* ---------- RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- BODY ---------- */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #333;
+}
+
+/* ---------- MAIN CONTAINER ---------- */
+.content {
+  width: 70%;
+  margin: 0 auto;          /* center horizontally only */
+  padding: 10px 0 30px 0;  /* small top padding */
+ 
+}
+
+/* ---------- LOGO ---------- */
+.logo {
+  width: 150px;
+  margin-bottom: 10px;   /* reduced space */
+}
+
+/* ---------- TOPBAR ---------- */
+.header {
+    padding: 10px 0 20px 0;  /* reduced top space */
+    color: rgb(6, 6, 6);
+    padding-left: 30px;   
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.header p {
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+/* ---------- HISTORY CONTAINER ---------- */
+.history-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ---------- HISTORY CARD ---------- */
+.history-item {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease;
+}
+
+.history-item:hover {
+  transform: translateY(-3px);
+}
+
+.history-type {
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 6px;
+  color: #667eea;
+}
+
+.history-text {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.history-time {
+  font-size: 12px;
+  color: gray;
+}
+
+/* ---------- CLEAR BUTTON ---------- */
+.clear-btn {
+  display: block;
+  margin-left: 30px;   /* pushes button to right */
+  margin-top: 15px;
+  padding: 10px 22px;
+  font-size: 15px;
+  background: #3b70e2;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  opacity: 0.9;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media screen and (max-width: 768px) {
+  .content {
+    width: 90%;
+  }
+}

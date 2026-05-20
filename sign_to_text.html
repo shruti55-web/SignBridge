@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SignBridge | Sign to Text</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+
+
+  <!-- MediaPipe -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+</head>
+
+<body>
+
+<div class="app">
+  <!-- Sidebar (exact from dashboard) -->
+  <aside class="sidebar" id="sidebar">
+    <img src="js/assets/logo.png" alt="logo">
+    <nav class="menu">
+      <a href="dashboard.html">🏠 Dashboard</a>
+      <a href="text-to-sign.html">🔤 Text to Sign</a>
+      <a href="sign_to_text.html" class="active">🖐️ Sign to Text</a>
+      <a href="voice-to-sign.html">🎤 Voice to Sign</a>
+      <a href="document-reader.html">📄 Document Reader</a>
+      <a href="ai-helper.html">🤖 AI Helper</a>
+      <a href="history.html">🕒 History</a>
+    </nav>
+    <div class="user-box">
+      <p id="userName"></p>
+      <small id="userEmail"></small>
+      <button onclick="logout()">Sign Out</button>
+    </div>
+    </aside>
+
+  <main class="content">
+
+
+  <div class="camera-box" style="position: relative; width: 640px; height: 480px; margin-top: 20px;">
+    
+    <video id="camera" width="640" height="480" autoplay muted
+      style="position: absolute; top:0; left:0; z-index:1;"></video>
+
+    <canvas id="landmarkCanvas" width="640" height="480"
+      style="position: absolute; top:0; left:0; z-index:2;"></canvas>
+
+
+    <button id="enableCamera"
+      style="position: absolute; top: 10px; left: 10px; z-index:3;">
+      Enable Camera
+    </button>
+  </div>
+
+  <div id="output" style="margin-top: 20px; font-size: 24px; font-weight: bold;">
+    Detected:
+  </div>
+  </div>
+  </main>
+</div>
+
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('hide');
+}
+function logout() {
+  window.location.href = 'login.html';
+}
+</script>
+<script src="js/sign_to_text.js"></script>
+</body>
+
+</html>
